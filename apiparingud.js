@@ -176,7 +176,7 @@ async function handleSpecificSearch(event) {
             const formData = new FormData(form);
 
             var raamat = document.getElementById("raamatu_id_spetsiifiline").value
-            const url = "http://localhost:5001/raamatu_otsing/"  + raamat;
+            const url = "https://ut-hajus-raamatud-otsing-api.azurewebsites.net/raamatu_otsing/"  + raamat;
 	    //We'll define the `postFormDataAsJson()` function in the next step.
             const responseData = await postDataAsJson(url, {
                 "sone": formData.get("sone")
@@ -190,13 +190,13 @@ async function handleSpecificSearch(event) {
 }
 
 async function listiraamatud() {
-    const responseData = await getDataAsJson("http://localhost:5000/raamatud/");
+    const responseData = await getDataAsJson("https://ut-hajus-raamatud-api.azurewebsites.net/raamatud/");
     const resultElement = document.getElementById("raamatud_result");
     resultElement.innerHTML = ""
     resultElement.innerHTML = ""
 for (var raamat of responseData.raamatud){
-	resultElement.innerHTML += '<a href="http://localhost:5000/raamatud/'+raamat+'"  download="'+raamat+'.txt" >' +raamat+".txt</a> " +
-			'<a href="#" onclick="deleteObject(\'http://localhost:5000/raamatud/'+raamat+'\')" > [kustuta]</a>' +
+	resultElement.innerHTML += '<a href="https://ut-hajus-raamatud-api.azurewebsites.net/raamatud/'+raamat+'"  download="'+raamat+'.txt" >' +raamat+".txt</a> " +
+			'<a href="#" onclick="deleteObject(\'https://ut-hajus-raamatud-api.azurewebsites.net/raamatud/'+raamat+'\')" > [kustuta]</a>' +
 			"<br />";
 }
 
