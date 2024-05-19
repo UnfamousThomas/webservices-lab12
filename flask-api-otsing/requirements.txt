@@ -1,4 +1,4 @@
 flask==3.0.2
 requests==2.31.0
-azure-storage-blob
+azure-storage-blob==12.19.1
 flask-cors

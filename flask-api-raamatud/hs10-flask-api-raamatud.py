@@ -98,10 +98,11 @@ def raamatu_nimekiri():
             }, 200)
 
 
-blob_connection_string = os.getenv('APPSETTING_AzureWebJobsStorage')
+blob_connection_string = os.getenv("AzureWebJobsStorage")
+if blob_connection_string is None:
+    raise Exception("Connection string is invalid")
 blob_service_client = BlobServiceClient.from_connection_string(blob_connection_string)
-blob_container_name = os.getenv("APPSETTING_blob_container_name")
-blob_konteineri_loogitmine(blob_container_name)
-
+blob_container_name = os.getenv("blob_container_name")
+blob_konteineri_loomine(blob_container_name)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

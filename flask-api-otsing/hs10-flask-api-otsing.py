@@ -61,9 +61,9 @@ def count_word_occurrences(text, word):
             count += 1
     return count
 
-blob_connection_string = os.getenv('APPSETTING_AzureWebJobsStorage')
+blob_connection_string = os.getenv("AzureWebJobsStorage")
 blob_service_client = BlobServiceClient.from_connection_string(blob_connection_string)
-blob_container_name = os.getenv("APPSETTING_blob_container_name")
+blob_container_name = os.getenv("blob_container_name")
 blob_konteineri_loomine(blob_container_name)
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+    app.run(host='0.0.0.0', port=5000)
