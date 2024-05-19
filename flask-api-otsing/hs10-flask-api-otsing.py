@@ -35,7 +35,7 @@ def raamatust_sone_otsimine(book_id):
         return {}, 404
 
 
-@app.route('/raamatu_otsing/', methods=['POST'])
+@app.route('/raamatu_otsing', methods=['POST'])
 def raamatu_otsing():
     input = json.loads(request.data)
     sone = input['sone']
