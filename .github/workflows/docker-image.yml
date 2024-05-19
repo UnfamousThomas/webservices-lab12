@@ -39,5 +39,9 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/hs9-api-raamatud:latest
 
+    - name: Trigger Azure Web App Deployment
+      run: |
+        curl -X POST ${{ secrets.AZURE_WEBAPP_WEBHOOK_URL }}
+
     - name: Logout from Docker Hub
       run: docker logout
